@@ -5,12 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Animator animator;
     private PlayerInputActions input = null;
     private Vector2 moveVector = Vector2.zero;
     private Vector2 smoothedMovementInput = Vector2.zero;
     private Vector2 movementInputSmoothVelocity = Vector2.zero;
     private Rigidbody2D rb = null;
     private PlayerStats stats;
+    [SerializeField] Transform arm;
 
     // Make move speed as a value in the STATS script
     [SerializeField] private float moveSpeed = 10f;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         stats = PlayerStats.Instance;
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -53,13 +56,18 @@ public class PlayerMovement : MonoBehaviour
     {
         SetPlayerVelocity();
         RotateTowardMouse();
+        if (moveVector.x != 0 || moveVector.y != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else { animator.SetBool("isRunning", false); }
     }
 
     private void RotateTowardMouse()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.up = direction;
+        arm.up = -direction;
     }
 
     private void SetPlayerVelocity()

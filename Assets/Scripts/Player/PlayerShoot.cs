@@ -46,6 +46,12 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
+
+        if (bulletsLeft < stats.baseMagSize && !isReloading && Input.GetKeyDown(KeyCode.R))
+        {
+            isReloading = true;
+            StartCoroutine(Reload());
+        }
     }
 
     private void FireBullet()
@@ -53,7 +59,7 @@ public class PlayerShoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, gunOffset.position, transform.rotation);
         bullet.GetComponent<Bullet>().damage = stats.baseDamage;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = stats.baseBulletSpeed * transform.up;
+        rb.velocity = stats.baseBulletSpeed * gunOffset.transform.right;
         bulletsLeft--;
     }
 
