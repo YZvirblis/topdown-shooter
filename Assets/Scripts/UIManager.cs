@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.WSA;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class UIManager : MonoBehaviour
     public List<Upgrade> upgrades;
     [SerializeField] GameObject upgradesContainer;
     [SerializeField] GameObject upgradeCardPrefab;
+    public bool isMenuOpen;
 
     public delegate void OnUpgradeSelect(Upgrade upgrade);
     public OnUpgradeSelect onUpgradeSelectCallback;
@@ -49,6 +52,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isMenuOpen)
+        {
+            UnityEngine.Cursor.visible = true;
+        }
+        else
+        {
+            UnityEngine.Cursor.visible = false;
+        }
+    }
+
     private void LevelUp()
     {
         foreach (Transform child in upgradesContainer.transform)
@@ -58,6 +73,7 @@ public class UIManager : MonoBehaviour
         if (upgrades.Count > 0)
         {
             upgradesContainer.SetActive(true);
+            isMenuOpen = true;
             Time.timeScale = 0f;
             for (int i = 0; i < 4; i++)
             {

@@ -24,6 +24,7 @@ public class UpgradeCard : MonoBehaviour
         upgrade.Apply();
         transform.parent.gameObject.SetActive(false);
         UIManager.Instance.onUpgradeSelectCallback(upgrade);
+        UIManager.Instance.isMenuOpen = false;
         Time.timeScale = 1.0f;
 
     }
