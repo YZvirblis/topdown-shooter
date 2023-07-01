@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 4209918222625850963}
   - component: {fileID: 4209918222625850956}
   - component: {fileID: 516492171154032058}
+  - component: {fileID: 8494951384144551525}
   m_Layer: 0
   m_Name: Eyeball
   m_TagString: Untagged
@@ -327,6 +328,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &8494951384144551525
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4209918222625850967}
+  m_Enabled: 1
+  m_SortingLayerID: -558749663
+  m_SortingLayer: 1
+  m_SortingOrder: 1
 --- !u!1 &5505531266564029243
 GameObject:
   m_ObjectHideFlags: 0
