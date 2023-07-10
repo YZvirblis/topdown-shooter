@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -35,9 +36,13 @@ public class PlayerStats : MonoBehaviour
     public delegate void OnPlayerLevelUp();
     public OnPlayerLevelUp onPlayerLevelUpCallback;
 
+    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI xpText;
+
     private void Start()
     {
         targetXp = (playerLevel + 1) * 10 - 5;
+        updateExperienceUI();
     }
 
     public void TakeDamage(int damage)
@@ -60,10 +65,17 @@ public class PlayerStats : MonoBehaviour
     public void GainXp(int xp)
     {
         currentXp += xp;
+        updateExperienceUI();
         if (currentXp >= targetXp)
         {
             LevelUp();
         }
+    }
+
+    private void updateExperienceUI()
+    {
+        xpText.text = "(" + currentXp + "/" + targetXp + ")";
+        levelText.text = playerLevel.ToString();
     }
 
     private void LevelUp()
@@ -91,5 +103,6 @@ public class PlayerStats : MonoBehaviour
         {
             onPlayerLevelUpCallback.Invoke();
         }
+        updateExperienceUI();
     }
 }
