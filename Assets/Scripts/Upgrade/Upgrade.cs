@@ -18,6 +18,7 @@ public class Upgrade : ScriptableObject
         {
             mod.Apply();
         }
+        AddChildUpgrades();
     }
 
     public void AddChildUpgrades()
