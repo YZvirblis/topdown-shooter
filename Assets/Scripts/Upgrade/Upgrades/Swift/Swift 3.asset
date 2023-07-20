@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de351bb6397fa5448953ebcdca2e0dc1, type: 3}
-  m_Name: Reloader
+  m_Name: Swift 3
   m_EditorClassIdentifier: 
-  upgradeName: Reloader
-  upgradeDescription: Decreases reload time
-  upgradeIcon: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
+  upgradeName: Swift 3
+  upgradeDescription: Further increases movement speed and decreases reload time.
+  upgradeIcon: {fileID: 21300000, guid: 748ae8b33df036b46a86e0387f1602cf, type: 3}
   modifiers:
+  - {fileID: 11400000, guid: 95815bf4b8cf7c74b8e07d5309a96101, type: 2}
   - {fileID: 11400000, guid: a6e2b4005d3227d4ca3f24586e44c627, type: 2}
   childUpgrades:
-  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 39f742c6e2bb0414fa559740ed769427, type: 2}
