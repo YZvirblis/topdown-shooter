@@ -18,17 +18,25 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
+    [Header("Parameters")]
     public int playerLevel = 1;
     public int health = 3;
     public float currentXp = 0;
     public float targetXp = 100;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public float baseDamage = 25f;
     public float baseBulletSpeed = 6;
     public int baseMagSize = 3;
     public float baseFireRate = 0.5f;
     public float reloadTime = 1.5f;
     public float baseMagnet = 2;
+    public bool sunSphereActive = false;
+
+
+    [Header("References")]
+    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI xpText;
+    public GameObject sunSphere;
 
     public delegate void OnHealthChanged();
     public OnHealthChanged onHealthChangedCallback;
@@ -36,15 +44,16 @@ public class PlayerStats : MonoBehaviour
     public delegate void OnPlayerLevelUp();
     public OnPlayerLevelUp onPlayerLevelUpCallback;
 
-    [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI xpText;
+    SunSphere sunSphereScript;
 
     private void Start()
     {
         targetXp = (playerLevel + 1) * 10 - 5;
         updateExperienceUI();
+        sunSphereScript = sunSphere.GetComponent<SunSphere>();
     }
 
+    #region Damage and death.
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -61,7 +70,9 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("player is dead");
     }
+    #endregion
 
+    #region Leveling and XP.
     public void GainXp(int xp)
     {
         currentXp += xp;
@@ -71,13 +82,11 @@ public class PlayerStats : MonoBehaviour
             LevelUp();
         }
     }
-
     private void updateExperienceUI()
     {
         xpText.text = "(" + currentXp + "/" + targetXp + ")";
         levelText.text = playerLevel.ToString();
     }
-
     private void LevelUp()
     {
         playerLevel++;
@@ -105,4 +114,20 @@ public class PlayerStats : MonoBehaviour
         }
         updateExperienceUI();
     }
+    #endregion
+
+    #region Sun Sphere Methods.
+    public void SSAddSpeed(float speed)
+    {
+        sunSphereScript.rotationSpeed += speed;
+    }
+    public void SSShootInterval(float interval)
+    {
+        sunSphereScript.shootInterval -= interval;
+    }
+    public void SSAdvanceStage()
+    {
+        sunSphereScript.AdvanceStage();
+    }
+    #endregion
 }

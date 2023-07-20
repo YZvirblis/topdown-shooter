@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de351bb6397fa5448953ebcdca2e0dc1, type: 3}
+  m_Name: Amaterasu
+  m_EditorClassIdentifier: 
+  upgradeName: Amaterasu
+  upgradeDescription: Embrace the full power of the sun
+  upgradeIcon: {fileID: 3869314190635794645, guid: d425c1ddcb3fbc645bbd16152e8fb67b, type: 3}
+  modifiers:
+  - {fileID: 11400000, guid: fba53f9c448d2374b8ca6d6a251af9d3, type: 2}
+  - {fileID: 11400000, guid: b8e534b7dcbd748488f628d365b1bc2d, type: 2}
+  - {fileID: 11400000, guid: 696da01c2fe7df0459a38b4cd1c05f12, type: 2}
+  childUpgrades: []

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Upgrade : ScriptableObject
 {
     public string upgradeName;
-    public string upgradeDescription;
+    [TextArea] public string upgradeDescription;
     public Sprite upgradeIcon;
     public List<Modifier> modifiers;
     public List<Upgrade> childUpgrades;

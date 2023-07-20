@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de351bb6397fa5448953ebcdca2e0dc1, type: 3}
-  m_Name: Rampage
+  m_Name: QuickHands 4
   m_EditorClassIdentifier: 
-  upgradeName: Rampage
-  upgradeDescription: Increases fire rate
-  upgradeIcon: {fileID: 21300000, guid: 6a7ac9e8c26b12440bf2b1da2ca97794, type: 3}
+  upgradeName: Quck Hands 4
+  upgradeDescription: Further increases mag size and fire rate.
+  upgradeIcon: {fileID: 21300000, guid: f618c5fe13b18994aa5aee8b97d8dca1, type: 3}
   modifiers:
+  - {fileID: 11400000, guid: 36d45da0776e21141943ed4f380092f4, type: 2}
   - {fileID: 11400000, guid: 2be30607277e3c549a25fda522ab6eae, type: 2}
-  childUpgrades:
-  - {fileID: 11400000}
+  childUpgrades: []
